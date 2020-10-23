@@ -27,6 +27,7 @@ Converter보다는 Formatter를 주로 많이 사용. <br/>
 - preHandle -> 요청 처리 -> postHandle -> 뷰 렌더링 -> afterCompletion <br/>
 - preHandle(1) -> preHandler(2) -> 요청 처리 -> postHandle(2) -> postHandle(1)  <br/>
     -> 뷰 렌더링 -> afterCompletion(2) -> afterCompletion(1) <br/>
+- @RestController 같은 경우에는 렌더링할 뷰가 없기 때문에 postHandle 다음에 afterCompletion이 바로 실행된다. <br/>
 - 비동기에서는 postHandle과 afterCompletion이 호출되지 않는다. <br/>
     대신, AsyncHandlerInterceptor가 제공하는 다른 메소드가 호출된다. <br/>
 - 여러개의 인터셉터를 사용할 경우 order로 순서를 설정할 수 있다. <br/>
