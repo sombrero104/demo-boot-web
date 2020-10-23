@@ -1,5 +1,6 @@
 package me.sombrero.demobootweb;
 
+import org.hibernate.event.internal.DefaultPersistOnFlushEventListener;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,19 +24,27 @@ public class SampleControllerTest {
     @Autowired
     MockMvc mockMvc;
 
-    @Test
+    @Autowired
+    PersonRepository personRepository;
+
+    /*@Test
     public void hello() throws Exception {
-        /*this.mockMvc.perform(get("/hello/sombrero104"))
+        *//*this.mockMvc.perform(get("/hello/sombrero104"))
                 .andDo(print())
-                .andExpect(content().string("hello sombrero104"));*/
+                .andExpect(content().string("hello sombrero104"));*//*
         this.mockMvc.perform(get("/hello").param("name", "sombrero104"))
                 .andDo(print())
                 .andExpect(content().string("hello sombrero104"));
-    }
+    }*/
 
     @Test
-    public void hello2() throws Exception {
-        this.mockMvc.perform(get("/hello2").param("id", "1"))
+    public void hello() throws Exception {
+        Person person = new Person();
+        person.setName("sombrero104");
+        Person savedPerson = personRepository.save(person);
+
+        this.mockMvc.perform(get("/hello")
+                .param("id", savedPerson.getId().toString()))
                 .andDo(print())
                 .andExpect(content().string("hello sombrero104"));
     }

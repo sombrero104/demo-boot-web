@@ -16,17 +16,17 @@ public class SampleController {
     public String hello(@PathVariable("name") Person person) {
         return "hello " + person.getName();
     }*/
-    @GetMapping("/hello")
+    /*@GetMapping("/hello")
     public String hello(@RequestParam("name") Person person) {
         return "hello " + person.getName();
-    }
+    }*/
 
     /**
      * 스프링 데이터 JPA가 제공하는 스프링 MVC용 도메인 클래스 컨버터를 사용해보자.
      */
-    @GetMapping("/hello2")
-    public String hello2(@RequestParam("id") Person person) {
-        return "hello2 " + person.getName();
+    @GetMapping("/hello")
+    public String hello(@RequestParam("id") Person person) {
+        return "hello " + person.getName();
     }
 
 }
