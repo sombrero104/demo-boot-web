@@ -59,6 +59,7 @@ Converter보다는 Formatter를 주로 많이 사용. <br/>
     - 예를 들어, <br/>
     XSS(Cross Site Scripting, 입력 폼에 스크립트를 넣어서 클라이언트 정보를 빼냄.)를 차단하는 경우,<br/>
     스프링MVC와는 관련이 없으므로 서블릿 필터 사용. <br/>
-    (네이버에서 LUCY라는 서블릿 필터를 제공하고 있음.) <br/>
+    (네이버에서 LUCY라는 XSS차단을 위한 서블릿 필터를 제공하고 있음. <br/>
+        서블릿 필터이기 때문에 web.xml 또는 WebApplicationInitializer에 설정해서 사용하면 됨.) <br/>
 
 <br/><br/>
