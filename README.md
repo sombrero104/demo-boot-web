@@ -18,5 +18,6 @@ Converter보다는 Formatter를 주로 많이 사용. <br/>
 #### 도메인 클래스 컨버터
 - 스프링 데이터 JPA가 제공하는 Repository를 사용해서 ID에 해당하는 엔티티를 읽어온다. <br/>
     (ID를 기준으로 ID에 해당하는 도메인 클래스로 컨버팅해준다.)<br/>
+    (컨버팅을 Repository에서 하기 때문에 Repository가 있어야함.)<br/>
 
 <br/><br/>
