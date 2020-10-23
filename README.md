@@ -14,4 +14,8 @@ Convertet는 Formatter보다 좀 더 General한 용도로 쓰임.<br/>
 Converter보다는 Formatter를 주로 많이 사용. <br/>
 <br/>
 
+## 스프링 데이터 JPA
+#### 도메인 클래스 컨버터
+- 스프링 데이터 JPA가 제공하는 Repository를 사용해서 ID에 해당하는 엔티티를 읽어온다. 
+
 <br/><br/>

@@ -33,4 +33,11 @@ public class SampleControllerTest {
                 .andExpect(content().string("hello sombrero104"));
     }
 
+    @Test
+    public void hello2() throws Exception {
+        this.mockMvc.perform(get("/hello2").param("id", "1"))
+                .andDo(print())
+                .andExpect(content().string("hello sombrero104"));
+    }
+
 }
