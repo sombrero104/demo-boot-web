@@ -3,8 +3,8 @@
 
 ## Formatter
 <img src="./images/formatter.png" width="70%"><br/>
-- Printer: 해당 객체를 (Locale 정보를 참고하) 문자열로 어떻게 출력할 것인가
-- Parser: 어떤 문자열을 (Locate 정보를 참고하여) 객체로 어떻게 변환할 것인가
+- Parser: 어떤 문자열을 (Locate 정보를 참고하여) 객체로 어떻게 변환할 것인가.
+- Printer: 해당 객체를 (Locale 정보를 참고하) 문자열로 어떻게 출력할 것인가.
 <br/>
 
 ## Formatter vs Converter
