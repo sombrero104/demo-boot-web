@@ -25,6 +25,7 @@ Converter보다는 Formatter를 주로 많이 사용. <br/>
 - 핸들러를 실행하기 전, 후(아직 렌더링 전) 그리고 완료(렌더링까지 끝난 이후) <br/>
     시점에 부가 작업을 하고 싶은 경우에 사용할 수 있다.<br/>
 - preHandle -> 요청 처리 -> postHandle -> 뷰 렌더링 -> afterCompletion <br/>
+- preHandle(1) -> preHandler(2) -> 요청 처리 -> postHandle(2) -> postHandle(1) -> 뷰 렌더링 -> afterCompletion <br/>
 - 여러 핸들러에서 반복적으로 사용하는 코드를 줄이고 싶을 때 사용할 수 있다.<br/>
     - 로깅, 인증 체크, Locale 변경 등.<br/>
 
@@ -35,6 +36,7 @@ Converter보다는 Formatter를 주로 많이 사용. <br/>
 
 #### void postHandle(request, response, modelAndView)
 - 핸들러 실행이 끝나고 아직 뷰를 렌더링 하기 이전에 호출됨.
+- modelAndView를 전달받기 때문에 modelAndView에 추가적인 작업을 할 수 있다. 
 - '뷰'에 전달할 추가적이거나 여러 핸들러에서 공통적인 모델 정보를 담는데 사용할 수도 있다.
 - 이 메소드는 인터셉터 역순으로 호출된다.
 - 비동기적인 요청 처리 시에는 호출되지 않는다.
