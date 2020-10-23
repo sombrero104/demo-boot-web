@@ -25,7 +25,8 @@ Converter보다는 Formatter를 주로 많이 사용. <br/>
 - 핸들러를 실행하기 전, 후(아직 렌더링 전) 그리고 완료(렌더링까지 끝난 이후) <br/>
     시점에 부가 작업을 하고 싶은 경우에 사용할 수 있다.<br/>
 - preHandle -> 요청 처리 -> postHandle -> 뷰 렌더링 -> afterCompletion <br/>
-- preHandle(1) -> preHandler(2) -> 요청 처리 -> postHandle(2) -> postHandle(1) -> 뷰 렌더링 -> afterCompletion <br/>
+- preHandle(1) -> preHandler(2) -> 요청 처리 -> postHandle(2) -> postHandle(1)  <br/>
+    -> 뷰 렌더링 -> afterCompletion(2) -> afterCompletion(1) <br/>
 - 여러 핸들러에서 반복적으로 사용하는 코드를 줄이고 싶을 때 사용할 수 있다.<br/>
     - 로깅, 인증 체크, Locale 변경 등.<br/>
 
