@@ -1,11 +1,14 @@
 package me.sombrero.demobootweb;
 
 import org.springframework.format.Formatter;
+import org.springframework.stereotype.Component;
 
 import java.text.ParseException;
 import java.util.Locale;
 
+@Component
 public class PersonFormatter implements Formatter<Person> {
+
     @Override
     public Person parse(String s, Locale locale) throws ParseException {
         Person person = new Person();
@@ -17,4 +20,5 @@ public class PersonFormatter implements Formatter<Person> {
     public String print(Person o, Locale locale) {
         return o.toString();
     }
+
 }
