@@ -29,6 +29,7 @@ Converter보다는 Formatter를 주로 많이 사용. <br/>
     -> 뷰 렌더링 -> afterCompletion(2) -> afterCompletion(1) <br/>
 - 비동기에서는 postHandle과 afterCompletion이 호출되지 않는다. <br/>
     대신, AsyncHandlerInterceptor가 제공하는 다른 메소드가 호출된다. <br/>
+- 여러개의 인터셉터를 사용할 경우 order로 순서를 설정할 수 있다. <br/>
 - 여러 핸들러에서 반복적으로 사용하는 코드를 줄이고 싶을 때 사용할 수 있다.<br/>
     - 로깅, 인증 체크, Locale 변경 등.<br/>
 
