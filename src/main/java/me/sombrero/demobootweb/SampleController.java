@@ -26,6 +26,7 @@ public class SampleController {
      */
     @GetMapping("/hello")
     public String hello(@RequestParam("id") Person person) {
+        System.out.println("##### hello " + person.getName());
         return "hello " + person.getName();
     }
 
