@@ -1,5 +1,5 @@
 # 스프링부트 스프링MVC 설정
-<br/>
+<br/><br/>
 
 # Formatter
 <img src="./images/formatter.png" width="70%"><br/>
@@ -11,13 +11,13 @@ Convertet는 Formatter보다 좀 더 General한 용도로 쓰임.<br/>
 자바 객체를 다른 자바 객체로 변환한다던가..<br/>
 하지만 주로 문자열을 객체로 변환한다던가 객체를 문자열로 변환하는 것을 많이 사용하기 때문에<br/>
 Converter보다는 Formatter를 주로 많이 사용. <br/>
-<br/><br/>
+<br/><br/><br/>
 
 # 스프링 데이터 JPA에서 제공하는 도메인 클래스 컨버터
 - 스프링 데이터 JPA가 제공하는 Repository를 사용해서 ID에 해당하는 엔티티를 읽어온다. <br/>
     (ID를 기준으로 ID에 해당하는 도메인 클래스로 컨버팅해준다.)<br/>
     (컨버팅을 Repository에서 하기 때문에 Repository가 있어야함.)<br/>
-<br/><br/>
+<br/><br/><br/>
 
 # HandlerInterceptor
 - 핸들러 맵핑에 설정할 수 있는 인터셉터.<br/>
@@ -60,7 +60,7 @@ Converter보다는 Formatter를 주로 많이 사용. <br/>
     스프링MVC와는 관련이 없으므로 서블릿 필터 사용. <br/>
     (네이버에서 LUCY라는 XSS차단을 위한 서블릿 필터를 제공하고 있음. <br/>
         서블릿 필터이기 때문에 web.xml 또는 WebApplicationInitializer에 설정해서 사용하면 됨.) <br/>
-<br/><br/>
+<br/><br/><br/>
 
 # 리소스 핸들러
 
