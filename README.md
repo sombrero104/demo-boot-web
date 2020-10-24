@@ -1,7 +1,7 @@
 # 스프링부트 스프링MVC 설정
 <br/>
 
-## Formatter
+# Formatter
 <img src="./images/formatter.png" width="70%"><br/>
 - Parser: 어떤 문자열을 (Locate 정보를 참고하여) 객체로 어떻게 변환할 것인가.
 - Printer: 해당 객체를 (Locale 정보를 참고하) 문자열로 어떻게 출력할 것인가.
@@ -13,14 +13,13 @@ Convertet는 Formatter보다 좀 더 General한 용도로 쓰임.<br/>
 Converter보다는 Formatter를 주로 많이 사용. <br/>
 <br/><br/>
 
-## 스프링 데이터 JPA
-#### 도메인 클래스 컨버터
+# 스프링 데이터 JPA에서 제공하는 도메인 클래스 컨버터
 - 스프링 데이터 JPA가 제공하는 Repository를 사용해서 ID에 해당하는 엔티티를 읽어온다. <br/>
     (ID를 기준으로 ID에 해당하는 도메인 클래스로 컨버팅해준다.)<br/>
     (컨버팅을 Repository에서 하기 때문에 Repository가 있어야함.)<br/>
 <br/><br/>
 
-## HandlerInterceptor
+# HandlerInterceptor
 - 핸들러 맵핑에 설정할 수 있는 인터셉터.<br/>
 - 핸들러를 실행하기 전, 후(아직 렌더링 전) 그리고 완료(렌더링까지 끝난 이후) <br/>
     시점에 부가 작업을 하고 싶은 경우에 사용할 수 있다.<br/>
@@ -61,5 +60,12 @@ Converter보다는 Formatter를 주로 많이 사용. <br/>
     스프링MVC와는 관련이 없으므로 서블릿 필터 사용. <br/>
     (네이버에서 LUCY라는 XSS차단을 위한 서블릿 필터를 제공하고 있음. <br/>
         서블릿 필터이기 때문에 web.xml 또는 WebApplicationInitializer에 설정해서 사용하면 됨.) <br/>
+<br/><br/>
+
+# 리소스 핸들러
+
+#### 디폴트(Default) 서블릿
+- 서블릿 컨테이너가 기본으로 제공하는 서블릿으로 정적인 리소스를 처리할 때 사용한다.
+
 
 <br/><br/>
