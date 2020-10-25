@@ -210,34 +210,34 @@ OXM(Object-XML Mapper) 라이브러리 중에 스프링이 지원하는 의존�
 ### XML로 요청 후 XML로 응답 받기
 - XML 컨버터 관련 의존성을 추가해준다.
 <pre>
-<!-- XML 컨버터 - JAXB 의존성 추가. -->
-<!-- jaxb-api: JAXB 인터페이스. -->
-<dependency>
-    <groupId>javax.xml.bind</groupId>
-    <artifactId>jaxb-api</artifactId>
-</dependency>
-<!-- jaxb-runtime: JAXB 구현체. -->
-<dependency>
-    <groupId>org.glassfish.jaxb</groupId>
-    <artifactId>jaxb-runtime</artifactId>
-</dependency>
-<!-- 스프링에서 마샬링과 언마샬링을 추상화해놓은 API를 제공.
+❮!-- XML 컨버터 - JAXB 의존성 추가. --❯
+❮!-- jaxb-api: JAXB 인터페이스. --❯
+❮dependency❯
+    ❮groupId❯javax.xml.bind❮/groupId❯
+    ❮artifactId❯jaxb-api❮/artifactId❯
+❮/dependency❯
+❮!-- jaxb-runtime: JAXB 구현체. --❯
+❮dependency❯
+    ❮groupId❯org.glassfish.jaxb❮/groupId❯
+    ❮artifactId❯jaxb-runtime❮/artifactId❯
+❮/dependency❯
+❮!-- 스프링에서 마샬링과 언마샬링을 추상화해놓은 API를 제공.
     - 마샬링: 객체를 XML로 변환하는 것.
     - 언마샬링: XML을 객체로 변환하는 것.
 
     spring-oxm에서 제공하는 마샬러를 빈으로 등록해서 사용.
-    -->
-<dependency>
-    <groupId>org.springframework</groupId>
-    <artifactId>spring-oxm</artifactId>
-    <version>${spring-framework.version}</version>
-</dependency>
+    --❯
+❮dependency❯
+    ❮groupId❯org.springframework❮/groupId❯
+    ❮artifactId❯spring-oxm❮/artifactId❯
+    ❮version❯${spring-framework.version}❮/version❯
+❮/dependency❯
 </pre>
 - WebConfig에 Jaxb2Marshaller를 빈으로 등록해준다. 
 - Person에 애노테이션 @XmlRootElement를 설정해서 JAXB에게 알려준다. 
 
-<img src="./images/xml_converter_1.png" width="50%"><br/>
-<img src="./images/xml_converter_2.png" width="50%"><br/>
+<img src="./images/xml_converter_1.png" width="70%"><br/>
+<img src="./images/xml_converter_2.png" width="70%"><br/>
 
 
 
