@@ -126,5 +126,13 @@ Request 헤더의 Context-Type이 무엇인지 보고 컨버터가 결정이 됨
 - (Atom 컨버터) (Atom Feed)
 - (RSS 컨버터) (RSS Feed)
 - 등등 ..
+
+### 컨버터 추가 방법
+- 기본으로 등록해주는 컨버터에 새로운 컨버터 추가하기: extendMessageConverters()
+- 기본으로 등록해주는 컨버터는 다 무시하고 새로 컨버터 설정하기: configureMessageConverters()
+- 의존성 추가로 컨버터 등록하기 (추천!)
+    - 메이븐 또는 그래들 설정에 의존성을 추가하면 그에 따른 컨버터가 자동으로 등록 된다.
+    - WebMvcConfigurationSupport <br/>
+        (이 기능 자체는 스프링 프레임워크의 기능임. 스프링 부트 아님.)
     
 <br/><br/>
