@@ -109,5 +109,21 @@ public void addResourceHandlers(ResourceHandlerRegistry registry) {
 # HTTP 메시지 컨버터
 - 요청 본문에서 메시지를 읽어들이거나(@RequestBody), <br/>
     응답 본문에 메시지를 작성할 때(@ResponseBody) 사용한다.
-
+- 요청 본문에 있는 문자열을 변환하거나, <br/>
+    또는 그 문자열이 json인 경우에 json을 객체로 변환하거나,<br/>
+    또는 xml을 객체로 변환하거나, 또는 문자열로 받거나..
+    
+### 기본 HTTP 메시지 컨버터
+- 바이트 배열 컨버터
+- 문자열 컨버터
+- Resource 컨버터 (octet-stream이라는 contextType의 요청이나 응답은 Resource 컨버터 사용.)
+- Form 컨버터 (폼 데이터 to/from MultiValueMap<String, String>)
+- (JAXB2 컨버터) (XML용) -> 이하 괄호는 해당 dependency가 있는 경우에만 사용. (classpath에 있는 경우.)
+- (Jackson2 컨버터) (JSON용)
+- (Jackson 컨버터) (JSON용)
+- (Gson 컨버터) (JSON용)
+- (Atom 컨버터) (Atom Feed)
+- (RSS 컨버터) (RSS Feed)
+- 등등 ..
+    
 <br/><br/>
