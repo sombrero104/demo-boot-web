@@ -58,6 +58,8 @@ public class WebConfig implements WebMvcConfigurer {
      * 컨버터 설정.
      * 주의! configureMessageConverters() 설정을 추가하면 기본 컨버터들이 사용 안됨..
      * 기본 컨버터들을 사용하면서 새로 추가만 하고 싶을 경우에는 extendMessageConverters() 사용.
+     * 하지만 주로 이 설정을 사용할 일이 많지 않다.
+     * 주로 컨버터를 새로 추가할 때에는 의존성을 추가해서 사용할 일이 많다.
      */
     /*@Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
