@@ -11,8 +11,13 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+import org.springframework.oxm.Marshaller;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+
+import javax.xml.transform.Result;
+import javax.xml.transform.stream.StreamResult;
+import java.io.StringWriter;
 
 import static org.junit.Assert.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -80,7 +85,7 @@ public class SampleControllerTest {
     }
 
     @Autowired
-    ObjectMapper objectMapper;
+    ObjectMapper objectMapper; // JSON
 
     @Test
     public void jsonMessage() throws Exception {
@@ -101,6 +106,38 @@ public class SampleControllerTest {
             .andExpect(status().isOk())
             .andExpect(jsonPath("$.id").value(2019))
             .andExpect(jsonPath("$.name").value("sombrero104"));
+    }
+
+    @Autowired
+    Marshaller marshaller; // XML
+
+    /**
+     * 스프링이 추상화한 인터페이스.
+     * WebConfig에서 우리가 등록한 Jaxb2Marshaller가 이 인터페이스를 구현하고 있다.
+     */
+
+    @Test
+    public void xmlMessage() throws Exception {
+        Person person = new Person();
+        person.setId(2019l);
+        person.setName("sombrero104");
+
+        StringWriter stringWriter = new StringWriter();
+        Result result = new StreamResult(stringWriter);
+        marshaller.marshal(person, result);
+        String xmlString = stringWriter.toString();
+
+        /**
+         * 어떤 컨버터를 사용할 것인지를 요청의 헤더에 있는 Content-Type 정보를 보고 판단한다.
+         */
+        this.mockMvc.perform(get("/jsonMessage")
+                .contentType(MediaType.APPLICATION_XML) // 요청 헤더 Content-Type을 json으로 준다.
+                .accept(MediaType.APPLICATION_XML) // 응답으로 어떠한 타입을 원하는지 알려주는 것.
+                .content(xmlString))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(xpath("person/id").string("2019"))
+                .andExpect(xpath("person/name").string("sombrero104"));
     }
 
 }
