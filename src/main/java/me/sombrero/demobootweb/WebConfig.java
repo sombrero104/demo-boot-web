@@ -6,9 +6,7 @@ import org.springframework.format.FormatterRegistry;
 import org.springframework.http.CacheControl;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.*;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -82,4 +80,28 @@ public class WebConfig implements WebMvcConfigurer {
         return jaxb2Marshaller;
     }
 
+    /**
+     * "/hi"라는 요청이 들어오면 "hi"에 해당하는 뷰를 리턴하도록 뷰 컨트롤러를 등록.
+     */
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/hi").setViewName("hi");
+    }
+
+    /**
+     * 비동기 관련 설정.
+     * 비동기 처리할 때 사용하는 TaskExecutor에 스레드풀 개수가 몇개인지 설정하거나 타임아웃 설정.
+     */
+    /*@Override
+    public void configureAsyncSupport(AsyncSupportConfigurer configurer) {
+
+    }*/
+
+    /**
+     * 요청 본문 또는 응답 본문을 어떤 (MIME) 타입으로 보내야 하는지 결정하는 전략을 설정한다.
+     */
+    /*@Override
+    public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
+
+    }*/
 }
