@@ -136,6 +136,19 @@ Request 헤더의 Context-Type이 무엇인지 보고 컨버터가 결정이 됨
         addDefaultHttpMessageConverters()에서 각각 컨버터들의 풀 패키지 경로가 클래스패스에 있는지 없는지 확인 후,<br/>
         있으면 기본 컨버터로 등록하는 것을 확인할 수 있다. <br/>
         (이 기능 자체는 스프링 프레임워크의 기능임. 스프링 부트 아님.)
+        <pre>
+        static {
+            ClassLoader classLoader = WebMvcConfigurationSupport.class.getClassLoader();
+            romePresent = ClassUtils.isPresent("com.rometools.rome.feed.WireFeed", classLoader);
+            jaxb2Present = ClassUtils.isPresent("javax.xml.bind.Binder", classLoader);
+            jackson2Present = ClassUtils.isPresent("com.fasterxml.jackson.databind.ObjectMapper", classLoader) && ClassUtils.isPresent("com.fasterxml.jackson.core.JsonGenerator", classLoader);
+            jackson2XmlPresent = ClassUtils.isPresent("com.fasterxml.jackson.dataformat.xml.XmlMapper", classLoader);
+            jackson2SmilePresent = ClassUtils.isPresent("com.fasterxml.jackson.dataformat.smile.SmileFactory", classLoader);
+            jackson2CborPresent = ClassUtils.isPresent("com.fasterxml.jackson.dataformat.cbor.CBORFactory", classLoader);
+            gsonPresent = ClassUtils.isPresent("com.google.gson.Gson", classLoader);
+            jsonbPresent = ClassUtils.isPresent("javax.json.bind.Jsonb", classLoader);
+        }
+        </pre>
     
 ### JSON 컨버터
 - 스프링 부트를 사용하지 않는 경우
