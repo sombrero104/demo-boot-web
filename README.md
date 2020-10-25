@@ -235,7 +235,7 @@ OXM(Object-XML Mapper) 라이브러리 중에 스프링이 지원하는 의존�
 </pre>
 - WebConfig에 Jaxb2Marshaller를 빈으로 등록해준다. 
 - Person에 애노테이션 @XmlRootElement를 설정해서 JAXB에게 알려준다. 
-
+- postman으로 실제 요청해보기<br/>
 <img src="./images/xml_converter_1.png" width="70%"><br/>
 <img src="./images/xml_converter_2.png" width="70%"><br/>
 
