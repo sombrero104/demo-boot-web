@@ -160,7 +160,8 @@ Request 헤더의 Context-Type이 무엇인지 보고 컨버터가 결정이 됨
     - 기본적으로 JacksonJSON 2가 의존성에 들어있다.
     - 즉, JSON용 HTTP 메시지 컨버터가 기본으로 등록되어 있다.
     <pre>
-    jackson2Present = ClassUtils.isPresent("com.fasterxml.jackson.databind.ObjectMapper", classLoader) && ClassUtils.isPresent("com.fasterxml.jackson.core.JsonGenerator", classLoader);
+    jackson2Present = 
+        ClassUtils.isPresent("com.fasterxml.jackson.databind.ObjectMapper", classLoader) ...;
     </pre>
     WebMvcConfigurationSupport 클래스에서 컨버터를 등록하는 것을 확인할 수 있듯이 <br/>
     JSON이 제공하는 ObjectMapper를 사용할 수 있는 것을 확인할 수 있다. 
