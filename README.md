@@ -114,6 +114,7 @@ public void addResourceHandlers(ResourceHandlerRegistry registry) {
     또는 xml을 객체로 변환하거나, 또는 문자열로 받거나..
     
 ### 기본 HTTP 메시지 컨버터
+헤더의 Context-Type이 무엇인지 보고 컨버터가 결정이 됨. 
 - 바이트 배열 컨버터
 - 문자열 컨버터
 - Resource 컨버터 (octet-stream이라는 contextType의 요청이나 응답은 Resource 컨버터 사용.)
