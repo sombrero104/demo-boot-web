@@ -166,4 +166,38 @@ Request 헤더의 Context-Type이 무엇인지 보고 컨버터가 결정이 됨
     WebMvcConfigurationSupport 클래스에서 컨버터를 등록하는 것을 확인할 수 있듯이 <br/>
     JSON이 제공하는 ObjectMapper를 사용할 수 있는 것을 확인할 수 있다. 
     
+### JSON으로 요청 후 JSON으로 응답 받기
+<pre>
+@GetMapping("/jsonMessage")
+public Person jsonMessage(@RequestBody Person person) {
+    return person;
+}
+</pre>
+- postman으로 실제 요청해보기
+<img src="./images/json_converter.png" width="70%"><br/>
+- test로 요청 해보기 (위에서 실제로 요청한 것과 같은 설정.)
+<pre>
+@Autowired
+ObjectMapper objectMapper;
+
+@Test
+public void jsonMessage() throws Exception {
+    Person person = new Person();
+    person.setId(2019l);
+    person.setName("sombrero104");
+
+    String jsonString = objectMapper.writeValueAsString(person);
+
+    /**
+     * 어떤 컨버터를 사용할 것인지를 요청의 헤더에 있는 Content-Type 정보를 보고 판단한다.
+     */
+    this.mockMvc.perform(get("/jsonMessage")
+            .contentType(MediaType.APPLICATION_JSON_UTF8) // 요청 헤더 Content-Type을 json으로 준다.
+            .accept(MediaType.APPLICATION_JSON_UTF8) // 응답으로 어떠한 타입을 원하는지 알려주는 것.
+            .content(jsonString))
+        .andDo(print())
+        .andExpect(status().isOk());
+}
+</pre>
+
 <br/><br/>

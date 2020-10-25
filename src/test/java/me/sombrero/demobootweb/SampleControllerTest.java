@@ -1,5 +1,6 @@
 package me.sombrero.demobootweb;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.hamcrest.Matchers;
 import org.hibernate.event.internal.DefaultPersistOnFlushEventListener;
 import org.junit.Test;
@@ -9,6 +10,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -75,6 +77,28 @@ public class SampleControllerTest {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().string("hello"));
+    }
+
+    @Autowired
+    ObjectMapper objectMapper;
+
+    @Test
+    public void jsonMessage() throws Exception {
+        Person person = new Person();
+        person.setId(2019l);
+        person.setName("sombrero104");
+
+        String jsonString = objectMapper.writeValueAsString(person);
+
+        /**
+         * 어떤 컨버터를 사용할 것인지를 요청의 헤더에 있는 Content-Type 정보를 보고 판단한다.
+         */
+        this.mockMvc.perform(get("/jsonMessage")
+                .contentType(MediaType.APPLICATION_JSON_UTF8) // 요청 헤더 Content-Type을 json으로 준다.
+                .accept(MediaType.APPLICATION_JSON_UTF8) // 응답으로 어떠한 타입을 원하는지 알려주는 것.
+                .content(jsonString))
+            .andDo(print())
+            .andExpect(status().isOk());
     }
 
 }
