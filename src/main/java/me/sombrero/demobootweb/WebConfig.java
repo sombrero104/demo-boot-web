@@ -3,10 +3,12 @@ package me.sombrero.demobootweb;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.http.CacheControl;
+import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 @Configuration
@@ -51,5 +53,19 @@ public class WebConfig implements WebMvcConfigurer {
          * 리소스가 변경되었다면 10분이 안지났더라도 변경된 리소스를 다시 받는다.
          */
     }
+
+    /**
+     * 컨버터 설정.
+     * 주의! configureMessageConverters() 설정을 추가하면 기본 컨버터들이 사용 안됨..
+     * 기본 컨버터들을 사용하면서 새로 추가만 하고 싶을 경우에는 extendMessageConverters() 사용.
+     */
+    /*@Override
+    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+
+    }*/
+    /*@Override
+    public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
+
+    }*/
 
 }
