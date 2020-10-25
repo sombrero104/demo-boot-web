@@ -200,4 +200,11 @@ public void jsonMessage() throws Exception {
 }
 </pre>
 
+### XML 컨버터
+OXM(Object-XML Mapper) 라이브러리 중에 스프링이 지원하는 의존성 추가.
+- JacksonXML
+- JAXB
+스프링부트를 사용하는 경우
+- 기본으로 XML 의존성을 추가해주지 않음.
+
 <br/><br/>

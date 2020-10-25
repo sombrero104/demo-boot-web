@@ -46,6 +46,29 @@
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
         </dependency>
+
+        <!-- XML 컨버터 - JAXB 의존성 추가. -->
+        <!-- jaxb-api: JAXB 인터페이스. -->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+        </dependency>
+        <!-- jaxb-runtime: JAXB 구현체. -->
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
+        </dependency>
+        <!-- 스프링에서 마샬링과 언마샬링을 추상화해놓은 API를 제공.
+            - 마샬링: 객체를 XML로 변환하는 것.
+            - 언마샬링: XML을 객체로 변환하는 것.
+
+            spring-oxm에서 제공하는 마샬러를 빈으로 등록해서 사용.
+            -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-oxm</artifactId>
+            <version>${spring-framework.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
