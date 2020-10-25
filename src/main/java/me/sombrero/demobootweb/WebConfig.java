@@ -99,6 +99,10 @@ public class WebConfig implements WebMvcConfigurer {
 
     /**
      * 요청 본문 또는 응답 본문을 어떤 (MIME) 타입으로 보내야 하는지 결정하는 전략을 설정한다.
+     * 기본 전략은 요청 헤더에 들어있는 Accept나 Content-Type을 보고 판단한다.
+     * 그런데 이렇게 헤더 값을 주기 어려운 경우, url에 확장자를 쓰고 싶은 경우,
+     * (http://localhost:8080/hello.json)
+     * 이런 설정을 configureContentNegotiation()에서 설정할 수 있다.
      */
     /*@Override
     public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
