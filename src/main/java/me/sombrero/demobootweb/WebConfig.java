@@ -34,6 +34,8 @@ public class WebConfig implements WebMvcConfigurer {
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/mobile/**")
                 .addResourceLocations("classpath:/mobile/")
+                // .addResourceLocations("classpath:/mobile/", "file:/Users/sombrero104/files") // 파일시스템 기준으로 경로 설정도 가능.
+                // .addResourceLocations("/mobile/") // classpath를 주지 않으면 디폴트로 src/main/webapp 디렉토리에서 찾음.
                 // .resourceChain(true) // 캐시를 사용할지 안할지에 대한 설정. 운영중이라면 true, 개발중이라면 false로 사용하면 편함.
                 /*.resourceChain(true)
                     .addResolver() // 어떤 요청에 해당하는 리소스를 찾는 방법 설정.
