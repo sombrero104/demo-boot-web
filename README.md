@@ -132,7 +132,9 @@ Request 헤더의 Context-Type이 무엇인지 보고 컨버터가 결정이 됨
 - 기본으로 등록해주는 컨버터는 다 무시하고 새로 컨버터 설정하기: configureMessageConverters()
 - 의존성 추가로 컨버터 등록하기 (추천!)
     - 메이븐 또는 그래들 설정에 의존성을 추가하면 그에 따른 컨버터가 자동으로 등록 된다.
-    - WebMvcConfigurationSupport <br/>
+    - WebMvcConfigurationSupport 클래스를 보면,<br/>
+        addDefaultHttpMessageConverters()에서 각각 컨버터들의 풀 패키지 경로가 클래스패스에 있는지 없는지 확인 후,<br/>
+        있으면 기본 컨버터로 등록하는 것을 확인할 수 있다. <br/>
         (이 기능 자체는 스프링 프레임워크의 기능임. 스프링 부트 아님.)
     
 ### JSON 컨버터
