@@ -3,7 +3,9 @@ package me.sombrero.demobootweb;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement // JAXB에게 어떤 객체를 변환할 것인지 알려줌.
 @Entity
 public class Person {
 

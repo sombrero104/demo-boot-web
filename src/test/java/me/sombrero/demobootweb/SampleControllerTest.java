@@ -98,7 +98,9 @@ public class SampleControllerTest {
                 .accept(MediaType.APPLICATION_JSON_UTF8) // 응답으로 어떠한 타입을 원하는지 알려주는 것.
                 .content(jsonString))
             .andDo(print())
-            .andExpect(status().isOk());
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.id").value(2019))
+            .andExpect(jsonPath("$.name").value("sombrero104"));
     }
 
 }
