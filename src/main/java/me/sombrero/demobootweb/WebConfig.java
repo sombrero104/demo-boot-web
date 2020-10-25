@@ -34,6 +34,10 @@ public class WebConfig implements WebMvcConfigurer {
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/mobile/**")
                 .addResourceLocations("classpath:/mobile/")
+                // .resourceChain(true) // 캐시를 사용할지 안할지에 대한 설정. 운영중이라면 true, 개발중이라면 false로 사용하면 편함.
+                /*.resourceChain(true)
+                    .addResolver() // 어떤 요청에 해당하는 리소스를 찾는 방법 설정.
+                    .addTransformer() // 응답으로 내보낼 리소스를 변경하는 방법 설정.*/
                 .setCacheControl(CacheControl.maxAge(10, TimeUnit.MINUTES));
         /**
          * setCacheControl()을 추가하면
