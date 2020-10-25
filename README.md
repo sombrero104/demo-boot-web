@@ -104,5 +104,10 @@ public void addResourceHandlers(ResourceHandlerRegistry registry) {
      */
 }
 </pre>
+<br/><br/><br/>
+
+# HTTP 메시지 컨버터
+- 요청 본문에서 메시지를 읽어들이거나(@RequestBody), <br/>
+    응답 본문에 메시지를 작성할 때(@ResponseBody) 사용한다.
 
 <br/><br/>
