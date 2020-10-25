@@ -70,4 +70,23 @@ Converter보다는 Formatter를 주로 많이 사용. <br/>
 - 스프링에 추가한 리소스핸들러가 먼저 처리하고 디폴트 서블릿이 실행되어야 하기 때문에 디폴트 서블릿은 우선순위가 낮다.
 - 스프링부트에서는 기본 정적 리소스 핸들러와 캐싱을 제공한다.
 
+#### 캐시 설정
+아래처럼 리소스 핸들러를 추가하고 캐시 설정을 할수도 있다.
+<pre>
+@Override
+public void addResourceHandlers(ResourceHandlerRegistry registry) {
+    registry.addResourceHandler("/mobile/**")
+            .addResourceLocations("classpath:/mobile/")
+            .setCacheControl(CacheControl.maxAge(10, TimeUnit.MINUTES));
+    /**
+     * setCacheControl()을 추가하면
+     * 이 요청에 리턴하는 리소스들은 캐시 관련 헤더가 응답 헤더에 추가된다.
+     * 위 옵션은 만약 리소스가 변경되지 않았다면 10분 동안 캐싱한다.
+     * 10분 동안 다시 요청을 보내면 HTTP 응답코드가 304로 나온다.
+     * 304(Not Modified)는 요청된 리소스를 재전송할 필요가 없음을 나타낸다.
+     * 리소스가 변경되었다면 10분이 안지났더라도 변경된 리소스를 다시 받는다.
+     */
+}
+</pre>
+
 <br/><br/>
