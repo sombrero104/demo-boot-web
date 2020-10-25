@@ -173,7 +173,7 @@ public Person jsonMessage(@RequestBody Person person) {
     return person;
 }
 </pre>
-- postman으로 실제 요청해보기
+- postman으로 실제 요청해보기<br/>
 <img src="./images/json_converter.png" width="70%"><br/>
 - test로 요청 해보기 (위에서 실제로 요청한 것과 같은 설정.)
 <pre>
